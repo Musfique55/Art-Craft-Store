@@ -3,14 +3,7 @@ const MyList = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
-        const user = {email};
-        fetch(`http://localhost:5000/crafts/${email}`,{
-            method : 'POST',
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify(user)
-        })
+        fetch(`http://localhost:5000/craft/${email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);

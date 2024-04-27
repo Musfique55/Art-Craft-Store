@@ -15,7 +15,7 @@ function App() {
     <div className='mx-5 md:mx-12 lg:mx-20'>
       {/* crafts card */}
         <div>
-          <h2>Craft Items</h2>
+          <h2 className='text-center font-bold text-4xl mb-8'>Craft Items</h2>
           <div className='grid gap-6 grid-col-1 md:grid-cols-2 lg:grid-cols-3'>
             {
               items.map(item => {

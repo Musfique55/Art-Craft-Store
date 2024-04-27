@@ -24,15 +24,15 @@ const Header = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-50">
-                        <NavLink to="/" className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
-                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
+                        <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
+                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
                         {
                              
-                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
+                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
                         }
                         {
                             
-                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
+                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
                         }
                         
                     </ul>
@@ -41,15 +41,15 @@ const Header = () => {
                 </div>
                 <div className=" hidden lg:flex lg:flex-1 lg:justify-center lg:items-center">
                     <ul className="flex items-center justify-center flex-1 gap-4 text-base menu menu-horizontal px-1">
-                    <NavLink to="/" className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
-                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
+                    <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
+                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
                         {
                              
-                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
+                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
                         }
                         {
                             
-                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#CA9C6A] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
+                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
                         }
                         
                     </ul>
@@ -58,10 +58,10 @@ const Header = () => {
                     !user ?
                     <div className="flex gap-6">
                     <Link to='/register'>
-                        <button  className= 'text-[#CA9C6A] font-semibold text-base btn btn-primary'>Register</button>      
+                        <button  className= 'text-white font-semibold text-base bg-[#F52449] px-6 py-3 rounded-full'>Register</button>      
                     </Link>
                     <Link to='/login'>
-                        <button  className= 'text-[#CA9C6A] font-semibold text-base btn btn-primary'>Login</button>      
+                        <button  className= 'text-white font-semibold text-base bg-[#A1BE95] px-6 py-3 rounded-full'>Login</button>      
                     </Link>
                     </div> :
                     <div className="flex-none gap-2" onMouseOver={() => handleEnter()} onMouseOut={() => handleLeave()}>
