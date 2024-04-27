@@ -12,6 +12,7 @@ import AuthProvider from './Components/AuthProvider.jsx';
 import Login from './Components/Login.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import AddItems from './Components/AddItems.jsx';
+import MyList from './Components/MyList.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/add-items',
         element : <AddItems></AddItems>
+      },
+      {
+        path : '/mylist',
+        element : <MyList></MyList>
       }
     ]
   },

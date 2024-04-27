@@ -3,7 +3,7 @@ import Header from "./Header";
 
 const Layout = () => {
     return (
-        <div>
+        <div className="nunito">
             <Header></Header>
             <Outlet></Outlet>
         </div>

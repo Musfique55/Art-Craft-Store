@@ -15,6 +15,19 @@ const AddItems = () => {
         const stockcheck = form.stockcheck.value;
         const email = form.email.value;
         const username = form.username.value;
+        const user = {image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username};
+        fetch('http://localhost:5000/crafts',{
+            method : 'POST',
+            headers : {
+                "content-type" : "application/json"
+            },
+            body : JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            form.reset();
+            console.log(data);
+        })
         console.log(image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username);
     }
     return (
