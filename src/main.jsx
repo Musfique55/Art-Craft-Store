@@ -25,7 +25,8 @@ const router = createBrowserRouter([
     children : [
       {
         path : '/',
-        element : <App></App>
+        element : <App></App>,
+        // loader : () => fetch('https://art-craft-store-server-rose.vercel.app/crafts')
       },
       {
         path : '/details/:id',

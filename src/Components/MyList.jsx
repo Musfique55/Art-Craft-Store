@@ -4,22 +4,19 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 const MyList = () => {
-    const {user,loader} = useContext(AuthContext) || {};
+    const {user} = useContext(AuthContext) || {};
     const [lists,setLists] = useState([]);
-
+    const [isLoading,setLoading] = useState(true);
 
     useEffect(() => {
-        if(loader && !user){
-            <span className="loading loading-dots loading-lg"></span>
-        } else{
+            setLoading(true);
             fetch(`https://art-craft-store-server-rose.vercel.app/craft/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setLists(data);
+                setLoading(false);
             })
-            
-        }
-        },[user,loader])
+        },[user])
      
     const handleDelete = (id) => {
         fetch(`https://art-craft-store-server-rose.vercel.app/crafts/${id}`,{
@@ -71,6 +68,7 @@ const MyList = () => {
                     <option value="No" defaultChecked>No</option>
                 </select>
             </form>
+            {isLoading && <div className='flex justify-center'><span className="loading loading-ring loading-lg mx-auto"></span></div>}
             {  
                 lists.map(list => {
                     return <div key={list._id} className="flex gap-6 mb-5 mx-5 md:mx-12 lg:mx-20 border p-5 rounded-lg">
