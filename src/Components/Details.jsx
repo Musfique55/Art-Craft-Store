@@ -5,10 +5,10 @@ const Details = () => {
     const {image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username} = found;
 
     return (
-        <div>
+        <div className="flex items-center justify-center">
             <div className="grid grid-cols-1 mx-5 gap-6 md:grid-cols-2 md:mx-12 lg:grid-cols-3 lg:mx-20">
             <div className="relative">
-                <img src={image} alt="" className="h-[450px] w-full"/>
+                <img src={image} alt="" className="h-[400px] w-full"/>
                 <p className="font-medium bg-[#A1BE95] p-2 rounded-md text-white text-sm absolute top-3 left-5">{stockcheck}</p>
             </div>
             <div  className="space-y-4">
@@ -25,7 +25,7 @@ const Details = () => {
                 <p className="text-[#A1BE95] font-semibold">Owner : {username}</p>
                 <p className= "text-[#A1BE95] font-semibold">Contact :{email}</p>
             </div>
-            <div >
+            <div className="md:col-span-2 lg:col-span-1">
                 <div className="border space-y-4 p-5 mb-5">
                 <h5 className="text-center">
                     Why Choose Us ?

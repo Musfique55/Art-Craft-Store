@@ -31,9 +31,11 @@ const Header = () => {
                         }
                         {
                             user &&
-                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
+                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art & Craft List</NavLink>
                         }
-                        
+                        <Link to='/register' className="">
+                        <button  className= 'text-white font-semibold text-base py-2 px-4 bg-[#F52449] lg:px-6 lg:py-3 rounded-full'>Register</button>      
+                        </Link>
                     </ul>
                     </div>
                     <a className="btn btn-ghost text-[rgb(19,19,19)] font-bold text-3xl pl-0"><img src={logo} alt="" className="h-[30px]"/></a>
@@ -48,19 +50,19 @@ const Header = () => {
                         }
                         {
                             user &&
-                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
+                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art & Craft List</NavLink>
                         }
                         
                     </ul>
                 </div>
                 {
                     !user ?
-                    <div className="flex gap-6">
-                    <Link to='/register'>
-                        <button  className= 'text-white font-semibold text-base bg-[#F52449] px-6 py-3 rounded-full'>Register</button>      
+                    <div className="flex gap-2 md:gap-4 lg:gap-6">
+                    <Link to='/register' className="hidden md:inline lg:inline">
+                        <button  className= 'text-white font-semibold text-base py-2 px-4 bg-[#F52449] md:px-6 md:py-3  lg:px-6 lg:py-3 rounded-full'>Register</button>      
                     </Link>
                     <Link to='/login'>
-                        <button  className= 'text-white font-semibold text-base bg-[#A1BE95] px-6 py-3 rounded-full'>Login</button>      
+                        <button  className= 'text-white font-semibold text-base bg-[#A1BE95] py-2 px-4 md:px-6 md:py-3 lg:px-6 lg:py-3 rounded-full'>Login</button>      
                     </Link>
                     </div> :
                     <div className="flex-none gap-2" onMouseOver={() => handleEnter()} onMouseOut={() => handleLeave()}>

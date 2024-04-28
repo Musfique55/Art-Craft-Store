@@ -39,7 +39,7 @@ const AddItems = () => {
         console.log(image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username);
     }
     return (
-        <div className="mx-20">
+        <div className="mx-5 md:mx-12 lg:mx-20">
             <form onSubmit={handleSubmit}>
                     <div className="form-control">
                         <label className="label">

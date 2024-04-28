@@ -71,11 +71,11 @@ const MyList = () => {
             {isLoading && <div className='flex justify-center'><span className="loading loading-ring loading-lg mx-auto"></span></div>}
             {  
                 lists.map(list => {
-                    return <div key={list._id} className="flex gap-6 mb-5 mx-5 md:mx-12 lg:mx-20 border p-5 rounded-lg">
-                                <img src={list.image} alt="" className="w-[200px] h-[150px] object-cover rounded-lg"/>
+                    return <div key={list._id} className="flex flex-col gap-6 mb-5 mx-5 md:mx-12 lg:mx-20 border p-5 rounded-lg  lg:flex-row">
+                                <img src={list.image} alt="" className="w-full h-[150px] object-cover rounded-lg md:h-[300px] lg:w-[300px] lg:h-[150px]"/>
                                 <div className="flex flex-col flex-1 space-y-5">
                                     <div className="flex justify-between">
-                                        <h3 className="text-2xl font-semibold">{list.itemName}</h3>
+                                        <h3 className="text-xl font-semibold md:text-2xl lg:text-2xl">{list.itemName}</h3>
                                         <p className="font-medium bg-[#A1BE95] p-2 rounded-md text-white text-sm">{list.stockcheck}</p>
                                     </div>
                                     <div className="flex justify-between font-semibold">
