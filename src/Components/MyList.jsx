@@ -62,7 +62,7 @@ const MyList = () => {
     
     // console.log(filter);
     return (
-        <div>
+        <div >
             <h2 className="text-4xl font-bold text-center mb-10">My Art & Craft List</h2>
             <form className="mx-auto text-center mb-10">
             <label>Customizable</label>
@@ -73,7 +73,7 @@ const MyList = () => {
             </form>
             {  
                 lists.map(list => {
-                    return <div key={list._id} className="flex gap-6 mb-5 mx-5 md:mx-12 lg:mx-20">
+                    return <div key={list._id} className="flex gap-6 mb-5 mx-5 md:mx-12 lg:mx-20 border p-5 rounded-lg">
                                 <img src={list.image} alt="" className="w-[200px] h-[150px] object-cover rounded-lg"/>
                                 <div className="flex flex-col flex-1 space-y-5">
                                     <div className="flex justify-between">

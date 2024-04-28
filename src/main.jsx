@@ -14,6 +14,8 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import AddItems from './Components/AddItems.jsx';
 import MyList from './Components/MyList.jsx';
 import Update from './Components/Update.jsx';
+import ProtectedRoutes from './Components/ProtectedRoutes';
+import Details from './Components/Details.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,11 @@ const router = createBrowserRouter([
         element : <App></App>
       },
       {
+        path : '/details/:id',
+        element : <ProtectedRoutes><Details></Details></ProtectedRoutes>,
+        loader : ({params}) => fetch(`https://art-craft-store-server-zeta.vercel.app/crafts/${params.id}`)
+      },
+      {
         path : '/register',
         element : <Register></Register>
       },
@@ -35,15 +42,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-items',
-        element : <AddItems></AddItems>
+        element : <ProtectedRoutes><AddItems></AddItems></ProtectedRoutes>
       },
       {
         path : '/mylist',
-        element : <MyList></MyList>,
+        element : <ProtectedRoutes><MyList></MyList></ProtectedRoutes>,
       },
       {
         path : '/update/:id',
-        element : <Update></Update>
+        element : <ProtectedRoutes><Update></Update></ProtectedRoutes>,
+        loader : ({params}) => fetch(`https://art-craft-store-server-zeta.vercel.app/crafts/${params.id}`)
       }
     ]
   },

@@ -27,11 +27,11 @@ const Header = () => {
                         <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
                         <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
                         {
-                             
+                             user &&
                             <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
                         }
                         {
-                            
+                            user &&
                             <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
                         }
                         
@@ -44,11 +44,11 @@ const Header = () => {
                     <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
                         <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
                         {
-                             
+                             user &&
                             <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
                         }
                         {
-                            
+                            user &&
                             <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art&Craft List</NavLink>
                         }
                         

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const Craftcards = ({item}) => {
     return (
         <div className="space-y-4 border p-5 rounded-lg flex flex-col flex-grow">
@@ -9,7 +10,7 @@ const Craftcards = ({item}) => {
                 <h6 >Rating : {item.rating}</h6>
                 <h6>{item.stockcheck}</h6>
             </div>
-             <button className="bg-[#A1BE95] font-semibold px-6 py-3 text-white rounded-md">View Details</button>
+             <Link to={`/details/${item._id}`}><button className="bg-[#A1BE95] font-semibold px-6 py-3 text-white rounded-md">View Details</button></Link>
         </div>
     );
 };
