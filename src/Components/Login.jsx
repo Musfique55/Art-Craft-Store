@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
+import glogo from "../../public/google.png"
+import gitlogo from "../../public/github.png"
 
 const Login = () => {
     const {loginUser,googleLogin,githubLogin} = useContext(AuthContext);
@@ -104,9 +106,9 @@ const Login = () => {
                         </div>     
             </form>
             <p className="text-center">Don{`'`}t have an account? <Link className="text-blue-600" to="/login">Register</Link></p>
-            <div className="flex flex-col justify-center items-center mt-5 px-8">
-                <button onClick={handleGoogle} className="btn btn-primary w-full block mb-5">Continue With Google</button>
-                <button onClick={handleGithub} className="btn btn-primary w-full block">Continue With Github</button>
+            <div className="flex flex-col justify-center items-center my-5 px-8">
+            <button onClick={handleGoogle} className="flex mb-5 font-semibold justify-center items-center gap-3 border text-[rgb(92,108,117)] font-base bg-white py-2 rounded-lg w-full"><img src={glogo} alt="" className="h-10 w-10" />Google</button>
+            <button onClick={handleGithub} className="flex justify-center font-semibold items-center gap-3 border text-[rgb(92,108,117)] font-base bg-white py-2 rounded-lg w-full"><img src={gitlogo} alt="" className="h-10 w-10"  />Github</button>
             </div>
         </div>
         </div>
