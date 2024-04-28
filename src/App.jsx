@@ -8,7 +8,7 @@ import Slider from './Components/Slider';
 function App() {
   const [items,setItems] = useState([]);
   useEffect(() => {
-    fetch('https://art-craft-store-server-zeta.vercel.app/crafts')
+    fetch('https://art-craft-store-server-rose.vercel.app/crafts')
     .then(res => res.json())
     .then(data => setItems(data));
 },[])

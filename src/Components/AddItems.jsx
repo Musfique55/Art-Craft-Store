@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 const AddItems = () => {
 
@@ -16,7 +17,7 @@ const AddItems = () => {
         const email = form.email.value;
         const username = form.username.value;
         const user = {image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username};
-        fetch('http://localhost:5000/crafts',{
+        fetch('https://art-craft-store-server-rose.vercel.app/crafts',{
             method : 'POST',
             headers : {
                 "content-type" : "application/json"
@@ -25,6 +26,13 @@ const AddItems = () => {
         })
         .then(res => res.json())
         .then(data => {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Item added successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
             form.reset();
             console.log(data);
         })

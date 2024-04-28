@@ -5,7 +5,10 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoutes = ({children}) => {
     const location = useLocation();
-    const {user} = useContext(AuthContext);
+    const {user,loader} = useContext(AuthContext);
+    if(loader){
+        return <span className="loading loading-dots loading-lg"></span>
+    }
     if(user){
         return children;
     }

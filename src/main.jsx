@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path : '/details/:id',
         element : <ProtectedRoutes><Details></Details></ProtectedRoutes>,
-        loader : ({params}) => fetch(`https://art-craft-store-server-zeta.vercel.app/crafts/${params.id}`)
+        loader : ({params}) => fetch(`https://art-craft-store-server-rose.vercel.app/crafts/${params.id}`)
       },
       {
         path : '/register',
@@ -47,12 +47,12 @@ const router = createBrowserRouter([
       {
         path : '/mylist',
         element : <ProtectedRoutes><MyList></MyList></ProtectedRoutes>,
-        loader : ({params}) =>  fetch(`https://art-craft-store-server-zeta.vercel.app/craft/${params.email}`)
+        loader : ({params}) =>  fetch(`https://art-craft-store-server-rose.vercel.app/craft/${params.email}`)
       },
       {
         path : '/update/:id',
         element : <ProtectedRoutes><Update></Update></ProtectedRoutes>,
-        loader : ({params}) => fetch(`https://art-craft-store-server-zeta.vercel.app/crafts/${params.id}`)
+        loader : ({params}) => fetch(`https://art-craft-store-server-rose.vercel.app/crafts/${params.id}`)
       }
     ]
   },

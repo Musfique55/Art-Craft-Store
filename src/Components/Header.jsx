@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-
+import logo from '../../public/logo.png'
 const Header = () => {
     const {user,logOut} = useContext(AuthContext);
-    // const [over,setOver] = useState(false);
     
     const handleEnter = () => {
         const parent = document.getElementById('dropdown-contents');
@@ -37,7 +36,7 @@ const Header = () => {
                         
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-[rgb(19,19,19)] font-bold text-3xl pl-0">Handmade Crafts</a>
+                    <a className="btn btn-ghost text-[rgb(19,19,19)] font-bold text-3xl pl-0"><img src={logo} alt="" className="h-[30px]"/></a>
                 </div>
                 <div className=" hidden lg:flex lg:flex-1 lg:justify-center lg:items-center">
                     <ul className="flex items-center justify-center flex-1 gap-4 text-base menu menu-horizontal px-1">

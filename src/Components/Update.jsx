@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
     const update = useLoaderData();
@@ -17,7 +18,7 @@ const Update = () => {
         const processTime = form.processtime.value;
         const stockcheck = form.stockcheck.value;
         const user = {image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck};
-        fetch(`https://art-craft-store-server-zeta.vercel.app/crafts/${_id}`,{
+        fetch(`https://art-craft-store-server-rose.vercel.app/crafts/${_id}`,{
             method : 'PUT',
             headers : {
                 "content-type" : "application/json"
@@ -27,6 +28,15 @@ const Update = () => {
         })
         .then(res => res.json())
         .then(data => {
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Item Updated Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
             console.log(data);
         })
     }

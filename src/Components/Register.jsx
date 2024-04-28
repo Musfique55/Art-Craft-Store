@@ -50,7 +50,7 @@ const Register = () => {
             updateUser(name,photo)
             .then(() => {
                 logOut();
-                navigate('/logout');
+                navigate('/login');
             })
         })
         .catch(error => {

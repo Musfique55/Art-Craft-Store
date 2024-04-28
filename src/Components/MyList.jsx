@@ -12,7 +12,7 @@ const MyList = () => {
         if(loader && !user){
             <span className="loading loading-dots loading-lg"></span>
         } else{
-            fetch(`https://art-craft-store-server-zeta.vercel.app/craft/${user?.email}`)
+            fetch(`https://art-craft-store-server-rose.vercel.app/craft/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setLists(data);
@@ -22,7 +22,7 @@ const MyList = () => {
         },[user,loader])
      
     const handleDelete = (id) => {
-        fetch(`https://art-craft-store-server-zeta.vercel.app/crafts/${id}`,{
+        fetch(`https://art-craft-store-server-rose.vercel.app/crafts/${id}`,{
             method : 'DELETE'
         })
         .then(res => res.json())
