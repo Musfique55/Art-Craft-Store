@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import Craftcards from './Components/Craftcards';
 import Slider from './Components/Slider';
+import Testimonial from './Components/Testimonial';
 
 function App() {
   const [items,setItems] = useState([]);
@@ -37,7 +38,11 @@ function App() {
             }
           </div>
         </div>
-        
+        <div>
+          <h3 className='text-center text-4xl mt-12 mb-4 font-bold'>TESTIMONIALS</h3>
+          <p className='text-base text-center text-[#A8A8A8]'>What our customers are saying about us</p>
+          <Testimonial></Testimonial>
+        </div>
     </div>
   )
 }
