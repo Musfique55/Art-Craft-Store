@@ -1,25 +1,76 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
     const {loginUser,googleLogin,githubLogin} = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const location = useLocation();
     
+   const handleGoogle = () => {
+    googleLogin()
+    .then(() => {
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        navigate(location?.state ? location.state : ('/'));
+      })
+      .catch(error => {
+          Swal.fire({
+              title: "Error!",
+              text: `${error.message}`,
+              icon: "error"
+            });
+    })
+   }
+
+
+  const handleGithub = () => {
+    githubLogin()
+    .then(() => {
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        navigate(location?.state ? location.state : ('/'));
+    })
+    .catch(error => {
+        Swal.fire({
+            title: "Error Occured!",
+            text: `${error.message}`,
+            icon: "error"
+          });
+    })
+  }
+
+
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
         loginUser(email,password)
         .then(() => {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500
+              });
             form.reset();
-            navigate('/');
+            navigate(location?.state ? location.state : ('/'));
         })
         .catch(error => {
-            console.log(error);
             Swal.fire({
                 title: "Error Occured!",
                 text: `${error.message}`,
@@ -54,8 +105,8 @@ const Login = () => {
             </form>
             <p className="text-center">Don{`'`}t have an account? <Link className="text-blue-600" to="/login">Register</Link></p>
             <div className="flex flex-col justify-center items-center mt-5 px-8">
-                <button onClick={googleLogin} className="btn btn-primary w-full block mb-5">Continue With Google</button>
-                <button onClick={githubLogin} className="btn btn-primary w-full block">Continue With Github</button>
+                <button onClick={handleGoogle} className="btn btn-primary w-full block mb-5">Continue With Google</button>
+                <button onClick={handleGithub} className="btn btn-primary w-full block">Continue With Github</button>
             </div>
         </div>
         </div>

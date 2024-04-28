@@ -2,13 +2,13 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../firebase.config";
-import Swal from "sweetalert2";
 export const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const [loader,setLoader] = useState(true);
+
 
     const createUser = (email,password) => {
         setLoader(true);
@@ -29,31 +29,12 @@ const AuthProvider = ({children}) => {
     }
     const googleLogin = () => {
         setLoader(true);
-      signInWithPopup(auth, googleProvider)
-      .then((res) => {
-            console.log(res);
-      })
-      .catch(error => {
-          Swal.fire({
-              title: "Error!",
-              text: `${error.message}`,
-              icon: "error"
-            });
-      })
+        return signInWithPopup(auth, googleProvider);
     }
 
     const githubLogin = () => {
         setLoader(true)
-        signInWithPopup(auth, githubProvider)
-        .then(() => {
-        })
-        .catch(error => {
-            Swal.fire({
-                title: "Error Occured!",
-                text: `${error.message}`,
-                icon: "error"
-              });
-        })
+        return signInWithPopup(auth, githubProvider);
     }
     const logOut = () => {
        return  signOut(auth);

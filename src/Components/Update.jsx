@@ -93,7 +93,7 @@ const Update = () => {
                         <label><input type='radio' name="stockcheck" value="Made to Order" defaultChecked={stockcheck === "Made to Order" ? "Made to Order" : ''}></input>Made to Order</label>
                         </div>
                     </div>
-                    <button type="submit" className="bg-[#F52449] py-3 w-full text-white font-semibold rounded-lg">Update</button>
+                    <button type="submit" className="bg-[#F52449] py-3 w-full text-white font-semibold rounded-lg" >Update</button>
             </form>
         </div>
     );

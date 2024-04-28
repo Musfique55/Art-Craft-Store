@@ -19,7 +19,7 @@ function App() {
           <div className='grid gap-6 grid-col-1 md:grid-cols-2 lg:grid-cols-3'>
             {
               items.map(item => {
-                return <Craftcards key={item._id} item={item}></Craftcards>
+                return <Craftcards key={item._id} items={items} item={item}></Craftcards>
               }).slice(0,6)
             }
           </div>

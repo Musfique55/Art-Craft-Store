@@ -16,6 +16,6 @@ const Craftcards = ({item}) => {
 };
 
 Craftcards.propTypes = {
-    item : PropTypes.object
+    item : PropTypes.object,
 }
 export default Craftcards;

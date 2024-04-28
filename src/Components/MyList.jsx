@@ -7,7 +7,7 @@ const MyList = () => {
     const {user,loader} = useContext(AuthContext) || {};
     const [lists,setLists] = useState([]);
 
-    
+
     useEffect(() => {
         if(loader && !user){
             <span className="loading loading-dots loading-lg"></span>
@@ -37,13 +37,13 @@ const MyList = () => {
                 confirmButtonText: "Yes, delete it!"
               }).then((result) => {
                 if (result.isConfirmed) {
-                if(data.deletedCount > 0) {
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",
                         icon: "success"
                     });
-                    const remaining = lists.filter(list => list.id !== id);
+                    if(data.deletedCount ) {
+                    const remaining = lists.filter(list => list._id !== id);
                     setLists(remaining);
                 }
                 }

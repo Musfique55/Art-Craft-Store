@@ -47,6 +47,7 @@ const router = createBrowserRouter([
       {
         path : '/mylist',
         element : <ProtectedRoutes><MyList></MyList></ProtectedRoutes>,
+        loader : ({params}) =>  fetch(`https://art-craft-store-server-zeta.vercel.app/craft/${params.email}`)
       },
       {
         path : '/update/:id',
