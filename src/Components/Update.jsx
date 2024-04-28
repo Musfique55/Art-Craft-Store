@@ -1,38 +1,7 @@
-
-const AddItems = () => {
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const image = form.image.value;
-        const itemName = form.name.value;
-        const subcategory = form.subcategory.value;
-        const description = form.description.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const agreement = form.agreement.value;
-        const processTime = form.processtime.value;
-        const stockcheck = form.stockcheck.value;
-        const email = form.email.value;
-        const username = form.username.value;
-        const user = {image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username};
-        fetch('http://localhost:5000/crafts',{
-            method : 'POST',
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify(user)
-        })
-        .then(res => res.json())
-        .then(data => {
-            form.reset();
-            console.log(data);
-        })
-        console.log(image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username);
-    }
+const Update = () => {
     return (
-        <div className="mx-20">
-            <form onSubmit={handleSubmit}>
+        <div>
+             <form onSubmit={handleSubmit}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Image</span>
@@ -93,22 +62,10 @@ const AddItems = () => {
                         <label><input type='radio' name="stockcheck" value="Made to Order"></input>Made to Order</label>
                         </div>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">User Email</span>
-                        </label>
-                        <input type="text" name="email" placeholder="Email Address" className="input input-bordered"  required/>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">User Name</span>
-                        </label>
-                        <input type="text" name="username" placeholder="User Name" className="input input-bordered"  required/>
-                    </div>
-                    <button type="submit" className="bg-[#F52449] py-3 w-full text-white font-semibold rounded-lg mt-5" >Add</button>
+                    <button type="submit" className="bg-[#F52449] py-3 w-full text-white font-semibold rounded-lg">Update</button>
             </form>
         </div>
     );
 };
 
-export default AddItems;
+export default Update;

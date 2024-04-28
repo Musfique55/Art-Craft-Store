@@ -13,6 +13,7 @@ import Login from './Components/Login.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import AddItems from './Components/AddItems.jsx';
 import MyList from './Components/MyList.jsx';
+import Update from './Components/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path : '/mylist',
-        element : <MyList></MyList>
+        element : <MyList></MyList>,
+      },
+      {
+        path : '/update/:id',
+        element : <Update></Update>
       }
     ]
   },

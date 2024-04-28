@@ -16,6 +16,7 @@ const AuthProvider = ({children}) => {
     }
 
     const loginUser = (email,password) => {
+        setLoader(true);
         return signInWithEmailAndPassword(auth,email,password);
     }
 
@@ -27,6 +28,7 @@ const AuthProvider = ({children}) => {
       })
     }
     const googleLogin = () => {
+        setLoader(true);
       signInWithPopup(auth, googleProvider)
       .then((res) => {
             console.log(res);
@@ -41,9 +43,9 @@ const AuthProvider = ({children}) => {
     }
 
     const githubLogin = () => {
+        setLoader(true)
         signInWithPopup(auth, githubProvider)
         .then(() => {
-
         })
         .catch(error => {
             Swal.fire({
@@ -63,7 +65,6 @@ const AuthProvider = ({children}) => {
         })
         return () => unSubscribe();
     },[])
-
     const userInfo = {user,createUser,updateUser,loader,logOut,loginUser,googleLogin,githubLogin}
 
 
