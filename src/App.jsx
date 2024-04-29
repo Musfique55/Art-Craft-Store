@@ -20,7 +20,9 @@ function App() {
       setItems(data);
       setLoading(false);
   });
-},[])
+},[]);
+
+
 
   return (
     <div >
@@ -51,10 +53,10 @@ function App() {
           </div>
         </div>
         {/* random */}
-        <div className='flex gap-8  mt-12 mx-5 md:mx-12 lg:mx-20'>
-            <img src={decor} alt="" className="w-1/2 h-[475px] object-fill"/>
+        <div className='flex flex-col gap-8  mt-12 mx-5 md:mx-12 md:flex-row lg:mx-20 lg:flex-row'>
+            <img src={decor} alt="" className="w-full h-[475px] object-fill md:w-1/2 lg:w-1/2"/>
           <div className='flex-1'>
-            <div className=' space-y-5 '>
+            <div className='space-y-5 '>
               <div className="flex items-center gap-3">
               <hr className='w-16 border-2'/>
               <h5 className='text-[#CE2A2A] font-base'>Upgrade Your Decor</h5>

@@ -26,7 +26,6 @@ const router = createBrowserRouter([
       {
         path : '/',
         element : <App></App>,
-        // loader : () => fetch('https://art-craft-store-server-rose.vercel.app/crafts')
       },
       {
         path : '/details/:id',
@@ -48,7 +47,6 @@ const router = createBrowserRouter([
       {
         path : '/mylist',
         element : <ProtectedRoutes><MyList></MyList></ProtectedRoutes>,
-        loader : ({params}) =>  fetch(`https://art-craft-store-server-rose.vercel.app/craft/${params.email}`)
       },
       {
         path : '/update/:id',

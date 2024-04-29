@@ -78,7 +78,7 @@ const MyList = () => {
                                         <h3 className="text-xl font-semibold md:text-2xl lg:text-2xl">{list.itemName}</h3>
                                         <p className="font-medium bg-[#A1BE95] p-2 rounded-md text-white text-sm">{list.stockcheck}</p>
                                     </div>
-                                    <div className="flex justify-between font-semibold">
+                                    <div className="flex justify-between text-base font-semibold">
                                         <p>Price  ${list.price}.00</p>
                                         <p>Rating  {list.rating}</p>
                                         <p>Customizable {list.agreement}</p>
