@@ -52,6 +52,12 @@ function App() {
             }
           </div>
         </div>
+        {/* Testimonial */}
+        <div>
+          <h3 className='text-center text-4xl mt-12 mb-4 font-bold'>TESTIMONIALS</h3>
+          <p className='text-base text-center text-[#A8A8A8]'>What our customers are saying about us</p>
+          <Testimonial></Testimonial>
+        </div>
         {/* random */}
         <div className='flex flex-col gap-8  mt-12 mx-5 md:mx-12 md:flex-row lg:mx-20 lg:flex-row'>
             <img src={decor} alt="" className="w-full h-[475px] object-fill md:w-1/2 lg:w-1/2"/>
@@ -72,12 +78,7 @@ function App() {
               <button className='text-white font-semibold text-base py-2 px-4 bg-[#F52449] md:px-6 md:py-3  lg:px-6 lg:py-3 rounded-full'>View Collection</button>
             </div>
           </div>
-        </div>
-        {/* Testimonial */}
-        <div>
-          <h3 className='text-center text-4xl mt-12 mb-4 font-bold'>TESTIMONIALS</h3>
-          <p className='text-base text-center text-[#A8A8A8]'>What our customers are saying about us</p>
-          <Testimonial></Testimonial>
+        
         </div>
     </div>
   )
