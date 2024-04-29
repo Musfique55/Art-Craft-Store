@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import logo from '../../public/logo.png'
+import { Tooltip } from "react-tooltip";
 const Header = () => {
     const {user,logOut} = useContext(AuthContext);
     
@@ -31,7 +32,6 @@ const Header = () => {
     setTheme('light')
   }
  
-  console.log(theme);
  }
     return (
         <div>
@@ -43,36 +43,45 @@ const Header = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52 z-50">
-                        <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
-                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
+                    <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold toolhome' : 'text-base font-medium toolhome'}>Home</NavLink>
+                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold toolall' : 'text-base font-medium toolall'}>All Art & Craft Items</NavLink>
                         {
                              user &&
-                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
+                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base tooladd' : 'font-medium text-base tooladd'} >Add Craft Item</NavLink>
                         }
                         {
                             user &&
-                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art & Craft List</NavLink>
+                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base toollist' : 'font-medium text-base toollist'} >My Art & Craft List</NavLink>
                         }
-                        <Link to='/register' className="">
-                        <button  className= 'text-white font-semibold text-base py-2 px-4 bg-[#F52449] lg:px-6 lg:py-3 rounded-full'>Register</button>      
-                        </Link>
+                        {
+                            !user && <Link to='/register' className="">
+                            <button  className= 'text-white font-semibold text-base py-2 px-4 bg-[#F52449] lg:px-6 lg:py-3 rounded-full'>Register</button>      
+                            </Link>
+                        }
+                        <Tooltip anchorSelect=".toolhome" content="Home" className="-mt-2"/>
+                        <Tooltip anchorSelect=".toolall" content="All Art & craft Items" className="-mt-2"/>
+                        <Tooltip anchorSelect=".tooladd" content="Add Craft Item" className="-mt-2"/>
+                        <Tooltip anchorSelect=".toollist" content="My Art & Craft List" className="-mt-2"/>
                     </ul>
                     </div>
                     <a className="btn btn-ghost text-[rgb(19,19,19)] font-bold text-3xl pl-0"><img src={logo} alt="" className="h-[30px]"/></a>
                 </div>
                 <div className=" hidden lg:flex lg:flex-1 lg:justify-center lg:items-center">
                     <ul className="flex items-center justify-center flex-1 gap-4 text-base menu menu-horizontal px-1">
-                    <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>Home</NavLink>
-                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold ' : 'text-base font-medium'}>All Art & craft Items</NavLink>
+                    <NavLink to="/" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold toolhome' : 'text-base font-medium toolhome'}>Home</NavLink>
+                        <NavLink to="/allitems" className={({isActive}) => isActive ? 'text-[#F52449] font-semibold toolall' : 'text-base font-medium toolall'}>All Art & Craft Items</NavLink>
                         {
                              user &&
-                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >Add Craft Item</NavLink>
+                            <NavLink to='/add-items' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base tooladd' : 'font-medium text-base tooladd'} >Add Craft Item</NavLink>
                         }
                         {
                             user &&
-                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base' : 'font-medium text-base'} >My Art & Craft List</NavLink>
+                            <NavLink to='/mylist' className={({isActive}) => isActive ? 'text-[#F52449] font-semibold text-base toollist' : 'font-medium text-base toollist'} >My Art & Craft List</NavLink>
                         }
-                        
+                        <Tooltip anchorSelect=".toolhome" content="Home" className="-mt-2"/>
+                        <Tooltip anchorSelect=".toolall" content="All Art & Craft Items" className="-mt-2"/>
+                        <Tooltip anchorSelect=".tooladd" content="Add Craft Item" className="-mt-2"/>
+                        <Tooltip anchorSelect=".toollist" content="My Art & Craft List" className="-mt-2"/>
                     </ul>
                 </div>
                 <label className="swap swap-rotate mr-3">
