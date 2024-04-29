@@ -5,6 +5,9 @@ import './App.css'
 import Craftcards from './Components/Craftcards';
 import Slider from './Components/Slider';
 import Testimonial from './Components/Testimonial';
+import tick from '../public/check-symbol.png'
+import decor from '../public/pexels-pixabay-462235.jpg';
+
 
 function App() {
   const [items,setItems] = useState([]);
@@ -47,6 +50,28 @@ function App() {
             }
           </div>
         </div>
+        {/* random */}
+        <div className='flex gap-8  mt-12 mx-5 md:mx-12 lg:mx-20'>
+            <img src={decor} alt="" className="w-1/2 h-[475px] object-fill"/>
+          <div className='flex-1'>
+            <div className=' space-y-5 '>
+              <div className="flex items-center gap-3">
+              <hr className='w-16 border-2'/>
+              <h5 className='text-[#CE2A2A] font-base'>Upgrade Your Decor</h5>
+              </div>
+              <h3 className='font-bold text-4xl'>New Day New Way & New Style</h3>
+              <p className='text-[#6E6E6E] font-normal'>New Day New Decor is a fresh approach to home styling, offering daily inspiration and curated collections to elevate your living spaces. With a focus on versatility and affordability, we believe that each day presents an opportunity to refresh your decor and express your unique style. From trendy accents to timeless classics, our carefully selected pieces cater to every taste and budget, ensuring that your home reflects the latest trends while remaining true to your personal aesthetic. </p>
+              <ul className='font-medium text-base '>
+                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/> Original Brand</li>
+                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/>High Quality</li>
+                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/>Trendy Style</li>
+                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/>Saving Money</li>
+              </ul>
+              <button className='text-white font-semibold text-base py-2 px-4 bg-[#F52449] md:px-6 md:py-3  lg:px-6 lg:py-3 rounded-full'>View Collection</button>
+            </div>
+          </div>
+        </div>
+        {/* Testimonial */}
         <div>
           <h3 className='text-center text-4xl mt-12 mb-4 font-bold'>TESTIMONIALS</h3>
           <p className='text-base text-center text-[#A8A8A8]'>What our customers are saying about us</p>
