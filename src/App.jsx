@@ -7,10 +7,13 @@ import Slider from './Components/Slider';
 import Testimonial from './Components/Testimonial';
 import tick from '../public/check-symbol.png'
 import decor from '../public/pexels-pixabay-462235.jpg';
+import Categories from './Components/Categories';
+import { Link } from 'react-router-dom';
 
 
 function App() {
   const [items,setItems] = useState([]);
+  const [categories,setCategories] = useState([]);
   const [loading,setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
@@ -22,10 +25,16 @@ function App() {
   });
 },[]);
 
-
+useEffect(() => {
+  fetch('https://art-craft-store-server-rose.vercel.app/subcategories')
+  .then(res => res.json())
+  .then(data => {
+    setCategories(data);
+  })
+},[])
 
   return (
-    <div >
+    <div className='nunito'>
       
       {/* slider banner */}
       <div className="grid grid-cols-1  md:grid-cols-1 lg:grid-cols-3 lg:gap-7">
@@ -39,7 +48,7 @@ function App() {
       </div>
       {/* crafts card */}
         <div className='mx-5 md:mx-12 lg:mx-20'>
-          <h2 className='text-center font-bold text-4xl mb-8 mt-8'>Craft Items</h2>
+          <h2 className='text-center font-bold text-4xl mb-8 mt-8'>Our Best Seller</h2>
           {
                  loading && <div className='flex justify-center'><span className="loading loading-ring loading-lg mx-auto"></span></div>
             }
@@ -51,6 +60,17 @@ function App() {
               }).slice(0,6)
             }
           </div>
+        </div>
+        {/* categories */}
+        <div className='mt-12'>
+          <h3 className='text-center font-bold text-4xl '>Categories</h3>
+            <div className='grid grid-cols-1 gap-6 mt-12 mx-5 md:mx-12 md:grid-cols-2 lg:mx-20 lg:grid-cols-3'>
+                {
+                  categories.map(category => {
+                    return <Categories key={category._id} category={category}></Categories>
+                  })
+                }
+            </div>
         </div>
         {/* Testimonial */}
         <div>
@@ -70,12 +90,14 @@ function App() {
               <h3 className='font-bold text-4xl'>New Day New Way & New Style</h3>
               <p className='text-[#6E6E6E] font-normal'>New Day New Decor is a fresh approach to home styling, offering daily inspiration and curated collections to elevate your living spaces. With a focus on versatility and affordability, we believe that each day presents an opportunity to refresh your decor and express your unique style. From trendy accents to timeless classics, our carefully selected pieces cater to every taste and budget, ensuring that your home reflects the latest trends while remaining true to your personal aesthetic. </p>
               <ul className='font-medium text-base '>
-                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/> Original Brand</li>
-                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/>High Quality</li>
-                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/>Trendy Style</li>
-                <li className='flex gap-4 items-center'><img src={tick} alt="" className='h-6 w-6'/>Saving Money</li>
+                <li className='flex gap-4 items-center mb-2'><img src={tick} alt="" className='h-6 w-6'/> Original Brand</li>
+                <li className='flex gap-4 items-center mb-2'><img src={tick} alt="" className='h-6 w-6'/>High Quality</li>
+                <li className='flex gap-4 items-center mb-2'><img src={tick} alt="" className='h-6 w-6'/>Trendy Style</li>
+                <li className='flex gap-4 items-center mb-4'><img src={tick} alt="" className='h-6 w-6'/>Saving Money</li>
               </ul>
+              <Link to="/allitems">
               <button className='text-white font-semibold text-base py-2 px-4 bg-[#F52449] md:px-6 md:py-3  lg:px-6 lg:py-3 rounded-full'>View Collection</button>
+              </Link>
             </div>
           </div>
         

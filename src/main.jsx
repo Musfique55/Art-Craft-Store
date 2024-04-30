@@ -16,6 +16,8 @@ import MyList from './Components/MyList.jsx';
 import Update from './Components/Update.jsx';
 import ProtectedRoutes from './Components/ProtectedRoutes';
 import Details from './Components/Details.jsx';
+import Allitems from '../Allitems.jsx';
+import CurrentCategory from './Components/CurrentCategory.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         element : <Login></Login>
       },
       {
+        path : '/allitems',
+        element : <Allitems></Allitems>,
+      },
+      {
         path: '/add-items',
         element : <ProtectedRoutes><AddItems></AddItems></ProtectedRoutes>
       },
@@ -52,6 +58,11 @@ const router = createBrowserRouter([
         path : '/update/:id',
         element : <ProtectedRoutes><Update></Update></ProtectedRoutes>,
         loader : ({params}) => fetch(`https://art-craft-store-server-rose.vercel.app/crafts/${params.id}`)
+      },
+      {
+        path : '/subcategory/:category',
+        element : <CurrentCategory></CurrentCategory>,
+        loader : ({params}) => fetch(`https://art-craft-store-server-rose.vercel.app/items/${params.category}`)
       }
     ]
   },

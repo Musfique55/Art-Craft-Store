@@ -20,16 +20,15 @@ const Header = () => {
 
     useEffect(() => {
        localStorage.setItem('theme',theme);
-        
         document.querySelector('html').setAttribute('data-theme',theme);
     },[theme])
 
 
  const handleTheme = (e) => {
   if(e.target.checked){
-    setTheme('dracula')
+    setTheme('dracula');
   }else{
-    setTheme('light')
+    setTheme('light');
   }
  
  }

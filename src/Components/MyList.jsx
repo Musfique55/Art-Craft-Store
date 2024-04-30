@@ -47,25 +47,20 @@ const MyList = () => {
               })
         })
     }
-    // const handleFilter = (e) => {
-    //     const agreement = e.target.value;
-    //     setFilter(agreement);
-    //     const filterable = lists.sort((prev,curr) => {
-    //         const filtered = prev.agreement - curr.agreement;
-    //         setLists(filtered)
-    //     })
-    //     console.log(filterable);
-    // }
+    const handleFilter = (e) => {
+        const agreement = e.target.value;
+        const found = lists.filter((item) => item.agreement === agreement);
+        setLists(found);
+    }
     
-    // console.log(filter);
     return (
         <div >
             <h2 className="text-4xl font-bold text-center mb-10">My Art & Craft List</h2>
-            <form className="mx-auto text-center mb-10">
-            <label>Customizable</label>
+            <form onChange={handleFilter} className="mx-auto text-center mb-10">
                 <select id="agreement" name="agreement">
+                    <option value="none">Select Customization</option> 
                     <option value="Yes">Yes</option>
-                    <option value="No" defaultChecked>No</option>
+                    <option value="No" >No</option>
                 </select>
             </form>
             {isLoading && <div className='flex justify-center'><span className="loading loading-ring loading-lg mx-auto"></span></div>}

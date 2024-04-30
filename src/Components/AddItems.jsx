@@ -26,17 +26,17 @@ const AddItems = () => {
         })
         .then(res => res.json())
         .then(data => {
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "Item added successfully",
-                showConfirmButton: false,
-                timer: 1500
-              });
-            form.reset();
-            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Item added successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                form.reset();
+            }
         })
-        console.log(image,itemName,subcategory,description,price,rating,agreement,processTime,stockcheck,email,username);
     }
     return (
         <div className="mx-5 md:mx-12 lg:mx-20">
@@ -55,9 +55,17 @@ const AddItems = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Subcategory Name</span>
+                            <span className="label-text">Subcategory</span>
                         </label>
-                        <input type="text" name="subcategory" placeholder="Item Name" className="input input-bordered"  required/>
+                        <select name="subcategory" id="agreement">
+                            <option value="none">Select an subcateogry</option>
+                            <option value="Wooden Furniture & Sculptures">Wooden Furniture & Sculptures</option>
+                            <option value="Wooden Home Decor">Wooden Home Decor</option>
+                            <option value="Wooden Utensils and Kitchenware">Wooden Utensils and Kitchenware</option>
+                            <option value="Jute Home Decor">Jute Home Decor</option>
+                            <option value="Jute Kitchenware & utensils">Jute Kitchenware & utensils</option>
+                            <option value="Jute and wooden jewellery">Jute and wooden jewellery</option>
+                        </select>
                     </div>
                     <div className="form-control">
                         <label className="label">
